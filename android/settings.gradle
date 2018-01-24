@@ -1,0 +1,3 @@
+rootProject.name = 'friendconnect'
+
+include ':app'
