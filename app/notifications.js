@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Dimensions, StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 
 import Header from "./components/header.js";
+import Comment from "./components/comment.js";
 
 const window = Dimensions.get('window');
 
@@ -29,7 +30,15 @@ export default class Notifications extends Component {
                     title="Notifications"
                     iconOpacity={0}
                 />
-                <ScrollView style={{height: window.height-75}}>
+                <ScrollView style={{height: window.height-118}}>
+                    <Comment
+                        user="Sarah Bridget replied:"
+                        comment="Have you heard of Brockhampton? I think you'll like them!"
+                    />
+                    <Comment
+                        user="New interest you might like:"
+                        comment=""
+                    />
                 </ScrollView>
             </View>
         );

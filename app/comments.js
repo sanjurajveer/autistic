@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, View, FlatList, Text, Image, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet, View, ScrollView, Text, Image, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
 
 import Header from "./components/header.js";
 import Comment from "./components/comment.js";
@@ -16,6 +16,7 @@ export default class Comments extends Component {
         };
 
         this.onChangeText = this.onChangeText.bind(this);
+        this.submit = this.submit.bind(this);
     }
 
     static navigationOptions = {
@@ -29,14 +30,14 @@ export default class Comments extends Component {
     };
 
     onChangeText(text) {
-        this.setState({ text });
+        this.setState({ text: text });
     }
 
     onSubmitEditing = ({ nativeEvent: { text } }) => this.setState({ text }, this.submit);
 
     submit() {
-        const { text } = this.state;
-        if (text) {
+        const { text } = this.state.text;
+        if (text !== undefined) {
             this.setState({ text: undefined }, () => this.props.onSubmit(text));
         } else {
             alert('Please enter your comment first');
@@ -50,11 +51,18 @@ export default class Comments extends Component {
                     title="Comments"
                     iconOpacity={0}
                 />
-                <FlatList
+                <ScrollView
                     style={{height: window.height-118}}
-                    data={[{key: 'a'}]}
-                    renderItem={({item}) => <Comment />}
-                />
+                >
+                    <Comment
+                        user="You:"
+                        comment="I love Billie Eilish! She's so good! I can't believe she's so young. Do you have any other artist recommendations?"
+                    />
+                    <Comment
+                        user="Sarah Bridget:"
+                        comment="Have you heard of Brockhampton? I think you'll like them!"
+                    />
+                </ScrollView>
 
                 <KeyboardAvoidingView
                     behavior='position'

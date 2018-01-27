@@ -77,7 +77,7 @@ export const Stack = StackNavigator({
     }},
     {
         headerMode: 'none',
-        // initialRouteName: "Home"
+        initialRouteName: "Home"
     }
 );
 

@@ -51,14 +51,7 @@ export default class Login extends Component {
                     },
                     "authKey": this.state.user})
                 );
-
-                // try {
-                //     await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
-                //     this.props.navigation.navigate("Home");
-                // } catch (error) {
-                //     alert("Couldn't log you in.")
-                // }
-
+                
                 this.setState({ user: undefined });
                 this.setState({ password: undefined });
 

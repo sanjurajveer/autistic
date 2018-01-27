@@ -27,8 +27,8 @@ export default class Post extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.wrapper}>
-                    <Text style={styles.interest}>Engineering • Samuel Piltch</Text>
-                    <Text style={styles.title}>I recently built a new app in React Native that helps kids with autism connect with others and spark new interests</Text>
+                    <Text style={styles.interest}>{this.props.interest} • {this.props.author}</Text>
+                    <Text style={styles.title}>{this.props.title}</Text>
                     <ViewMoreText
                         numberOfLines={3}
                         renderViewMore={this.renderViewMore}
@@ -36,7 +36,7 @@ export default class Post extends Component {
                         textStyle={styles.content}
                     >
                         <Text>
-                            Lorem ipsum dolor sit amet, in quo dolorum ponderum, nam veri molestie constituto eu. Eum enim tantas sadipscing ne, ut omnes malorum nostrum cum. Errem populo qui ne, ea ipsum antiopam definitionem eos.
+                            {this.props.content}
                         </Text>
                     </ViewMoreText>
                     <TouchableOpacity

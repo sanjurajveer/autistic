@@ -12,8 +12,8 @@ export default class Comment extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.user}>Joseph Babbitt</Text>
-                <Text>Wow cool app! Great that you are helping out those in need.</Text>
+                <Text style={styles.user}>{this.props.user}</Text>
+                <Text>{this.props.comment}</Text>
             </View>
         );
     }
