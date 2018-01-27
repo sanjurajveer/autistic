@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
 export default class Header extends Component {
 
     render() {
         return (
             <View style={styles.container}>
+                <Text style={styles.title}>{this.props.title}</Text>
                 <TouchableOpacity
                     style={[styles.header, styles.grid, {opacity: this.props.iconOpacity}]}
                     onPress={this.props.onPress}
                 >
-                    <Text>B</Text>
+                    <Image
+                        source={require('../assets/img/pencil-icon.png')}
+                        style={[styles.grid, {tintColor: "#ffffff"}]}
+                    />
                 </TouchableOpacity>
-                <Text style={styles.title}>{this.props.title}</Text>
             </View>
         );
     }
@@ -41,9 +44,12 @@ const styles = StyleSheet.create({
 
         position: 'absolute',
         top: 0,
-        left: 0,
-        right: 0,
-        overflow: 'hidden'
+        right: 10
+    },
+    grid: {
+        marginTop: 18,
+        width: 26,
+        height: 26
     },
     title: {
         paddingTop: 10,
@@ -51,9 +57,5 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 22,
         fontWeight: '700'
-    },
-    grid: {
-        justifyContent: 'flex-start',
-        paddingTop: 19
     }
 });

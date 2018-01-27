@@ -1,36 +1,33 @@
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, View, FlatList, Text, Image } from 'react-native';
-
-import { StackNavigator } from 'react-navigation';
+import { Dimensions, StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 
 import Header from "./components/header.js";
-import Post from "./components/post.js";
 
 const window = Dimensions.get('window');
 
-export default class Home extends Component {
+export default class Interest extends Component {
+
+    static navigationOptions = {
+        tabBarLabel: 'Interest',
+        // Note: By default the icon is only shown on iOS. Search the showIcon option below.
+        tabBarIcon: ({ tintColor }) => (
+                <Image
+                    source={require('./assets/img/compass-icon.png')}
+                    style={[styles.icon, {tintColor: tintColor}]}
+                />
+            ),
+        };
 
     constructor(props) {
         super(props);
     }
 
-    static navigationOptions = {
-        tabBarLabel: 'Home',
-        tabBarIcon: ({ tintColor }) => (
-            <Image
-                source={require('./assets/img/home-icon.png')}
-                style={[styles.icon, {tintColor: tintColor}]}
-            />
-        ),
-    };
-
     render() {
         return (
             <View style={styles.container}>
                 <Header
-                    title="Friend Connect"
-                    iconOpacity={1}
-                    onPress={() => this.props.navigation.navigate('NewPost')}
+                    title="Interest"
+                    iconOpacity={0}
                 />
                 <FlatList
                     style={{height: window.height-118}}
@@ -50,5 +47,5 @@ const styles = StyleSheet.create({
     icon: {
         width: 26,
         height: 26
-    }
+    },
 });
